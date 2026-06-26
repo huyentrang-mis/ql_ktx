@@ -1,9 +1,6 @@
-FROM php:8.2-apache
-RUN echo "ServerName localhost" >> /etc/apache2/apache2.conf \
-    && a2dismod mpm_event mpm_worker || true \
-    && a2enmod mpm_prefork rewrite || true
+FROM php:8.2-cli
 RUN docker-php-ext-install pdo pdo_mysql
-COPY . /var/www/html/
-RUN chown -R www-data:www-data /var/www/html
-EXPOSE 80
-CMD ["apache2-foreground"]
+COPY . /app
+WORKDIR /app
+EXPOSE 8080
+CMD ["php", "-S", "0.0.0.0:8080"]
