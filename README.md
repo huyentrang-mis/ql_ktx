@@ -1,5 +1,5 @@
 # KTX Smart - Hệ Thống Quản Lý Ký Túc Xá
-
+qlktx-production.up.railway.app
 ## Cấu Trúc Thư Mục
 
 ```
