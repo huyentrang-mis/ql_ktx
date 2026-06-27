@@ -729,3 +729,36 @@ body {
     display: flex;
     align-items: center;
 }
+
+
+.demo-card{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    padding:14px 18px;
+    margin-bottom:12px;
+
+    border:1px solid #dce5f3;
+    border-radius:12px;
+
+    background:#f8fbff;
+
+    cursor:pointer;
+    transition:.25s;
+}
+
+.demo-card:hover{
+    background:#eef5ff;
+    border-color:#4f8cff;
+    transform:translateY(-2px);
+}
+
+.demo-card.active{
+    border:2px solid #4f8cff;
+    background:#e8f1ff;
+}
+
+.demo-card code{
+    font-size:14px;
+}

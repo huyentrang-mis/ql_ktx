@@ -72,8 +72,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <label class="form-label">Tên đăng nhập hoặc Email</label>
             <div class="input-group">
                 <span class="input-group-text"><i class="bi bi-person-fill"></i></span>
-                <input type="text" name="username" class="form-control" placeholder="username hoặc email@domain.vn"
-                    value="<?= htmlspecialchars($_POST['username'] ?? '') ?>" required autofocus>
+                <input type="text"
+       id="usernameInput"
+       name="username"
+       class="form-control"
+       placeholder="username hoặc email@domain.vn"
+       value="<?= htmlspecialchars($_POST['username'] ?? '') ?>"
+       required autofocus>
             </div>
         </div>
         <div class="mb-4">
@@ -107,12 +112,47 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         </a>
     </div>
 
-    <div class="mt-4 p-3 rounded" style="background:#f8f9fd;font-size:12px;color:var(--text-muted);">
-        <strong>Tài khoản demo:</strong><br>
-        Admin: <code>admin</code> / <code>password</code><br>
-        Nhân viên: <code>staff01</code> / <code>password</code><br>
-        Sinh viên: <code>sv001</code> / <code>password</code>
+    <div class="mt-4">
+    <h6 class="mb-3 fw-bold text-uppercase text-secondary">
+        Tài khoản Demo
+    </h6>
+
+    <div class="demo-card"
+         data-user="admin"
+         data-pass="password">
+
+        <div>
+            <i class="bi bi-shield-check text-primary me-2"></i>
+            <strong>Administrator</strong>
+        </div>
+
+        <code>admin / password</code>
     </div>
+
+    <div class="demo-card"
+         data-user="staff01"
+         data-pass="password">
+
+        <div>
+            <i class="bi bi-people text-primary me-2"></i>
+            <strong>Training Staff</strong>
+        </div>
+
+        <code>staff01 / password</code>
+    </div>
+
+    <div class="demo-card"
+         data-user="sv001"
+         data-pass="password">
+
+        <div>
+            <i class="bi bi-mortarboard text-primary me-2"></i>
+            <strong>Student</strong>
+        </div>
+
+        <code>sv001 / password</code>
+    </div>
+</div>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
@@ -123,6 +163,26 @@ function togglePwd() {
     inp.type = inp.type === 'password' ? 'text' : 'password';
     ico.className = inp.type === 'password' ? 'bi bi-eye' : 'bi bi-eye-slash';
 }
+
+document.querySelectorAll(".demo-card").forEach(card => {
+
+    card.addEventListener("click", function(){
+
+        document.querySelectorAll(".demo-card")
+            .forEach(c => c.classList.remove("active"));
+
+        this.classList.add("active");
+
+        document.getElementById("usernameInput").value =
+            this.dataset.user;
+
+        document.getElementById("passwordInput").value =
+            this.dataset.pass;
+
+        document.getElementById("usernameInput").focus();
+    });
+
+});
 </script>
 </body>
 </html>
