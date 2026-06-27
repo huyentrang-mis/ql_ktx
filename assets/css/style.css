@@ -426,18 +426,12 @@ body {
 
 /* ---- AUTH PAGES ---- */
 .auth-body {
-     background: linear-gradient(135deg, #0d1f3c 0%, #1a3c6e 50%, #2563b0 100%);
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-
-    align-items: flex-start;   /* hoặc center nếu màn hình đủ cao */
-
-    padding: 40px 20px;
-    position: relative;
-
-    overflow-y: auto;
-    overflow-x: hidden;
+      min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:flex-start;
+    padding:50px 20px;
+    overflow-y:auto;
 }
 
 .auth-body::before {
